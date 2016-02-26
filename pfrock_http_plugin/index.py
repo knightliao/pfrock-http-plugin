@@ -5,12 +5,10 @@ import importlib
 import logging
 import traceback
 
-from pfrock.core.constants import ROUTER_PATH
-from pfrock.core.plugin import PfrockPlugin
-
 logger = logging.getLogger('pfrock.handler')
 
 ROUTER_HTTP_HANDLER = 'handler'
+ROUTER_PATH = "path"
 
 
 def import_from_file(class_path):
@@ -20,7 +18,7 @@ def import_from_file(class_path):
     return my_class
 
 
-class PfrockHttpPlugin(PfrockPlugin):
+class PfrockHttpPlugin(object):
     def get_handler(self, options, **kwargs):
         if not options:
             options = {}
